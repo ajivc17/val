@@ -1,0 +1,220 @@
+/* Import romantic fonts */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Great+Vibes&display=swap');
+
+/* Make the background image fit MacBook Air 13" */
+body {
+    text-align: center;
+    font-family: 'Great Vibes', cursive;
+    background: url('bg.png') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Card container */
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 50%;
+    max-width: 500px;
+}
+
+/* Valentine’s Day Header */
+h1 {
+    font-size: 38px;
+    color: #e76161;
+    font-family: 'Dancing Script', cursive;
+}
+
+h2 {
+    font-size: 28px;
+    color: #fed0d0;
+    font-family: 'Dancing Script', cursive;
+}
+
+/* Love Note */
+.love-note {
+    font-size: 28px;
+    font-family: 'Dancing Script', cursive;
+    color: #fed0d0;
+    padding: 10px;
+}
+
+/* Checkbox label */
+label {
+    font-size: 22px;
+    font-family: 'Dancing Script', cursive;
+    color: #e76161;
+    cursor: pointer;
+}
+
+#yes-checkbox {
+    width: 20px; /* Bigger checkbox */
+    height: 20px; /* Bigger checkbox */
+    margin-right: 10px; /* Spacing between checkbox and label */
+}
+
+label[for="yes-checkbox"] {
+    font-size: 30px; /* Larger text for label */
+    padding: 10px; /* More space around the text */
+}
+
+/* Valentine-themed Buttons */
+button {
+    display: block;
+    margin: 20px auto;
+    padding: 12px 24px;
+    font-size: 20px;
+    background: linear-gradient(to right, #e76161, #fed0d0);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-family: 'Great Vibes', cursive;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: linear-gradient(to right, #e76161, #fed0d0);
+}
+
+button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+/* Styling for the No button */
+#no-btn {
+    background: #922727;
+    margin-top: 10px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 18px;
+    border-radius: 15px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#no-btn:hover {
+    background: #e76161;
+}
+
+/* Final Message Styling */
+.final-message {
+    text-align: center;
+    color: #d50000;
+    font-family: 'Great Vibes', cursive;
+    font-size: 30px;
+    padding: 50px;
+}
+
+/* Final message container (after submission) */
+.final-message-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 50%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Heart Animation Styling */
+.hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.heart {
+    position: absolute;
+    bottom: 0;
+    width: 30px; /* Adjust size of hearts */
+    height: 30px;
+    background-color: red;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    animation: floatUp 4s linear infinite;
+    opacity: 0.8;
+}
+
+/* Floating Animation for Hearts */
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* Mobile-first responsive adjustments */
+@media (max-width: 767px) {
+    /* Card container */
+    .container {
+        width: 90%; /* Take up more space on mobile */
+        max-width: 400px; /* Smaller container max-width */
+    }
+
+    h1 {
+        font-size: 28px; /* Adjust header font size */
+    }
+
+    .love-note {
+        font-size: 22px; /* Adjust love note font size */
+    }
+
+    /* Button adjustments */
+    button {
+        font-size: 18px; /* Smaller button text on mobile */
+        padding: 15px 30px; /* Larger padding for easier tapping */
+    }
+
+    /* Checkbox size and label */
+    #yes-checkbox {
+        width: 30px;
+        height: 30px;
+    }
+
+    label[for="yes-checkbox"] {
+        font-size: 26px; /* Slightly larger label text */
+    }
+
+    /* No button */
+    #no-btn {
+        font-size: 16px; /* Smaller button text */
+        padding: 12px 24px;
+    }
+}
+
+/* Tablet and larger devices */
+@media (min-width: 768px) {
+    .container {
+        width: 50%; /* Default container width */
+        max-width: 500px;
+    }
+
+    button {
+        padding: 18px 36px; /* Adjust button padding for medium devices */
+    }
+
+    h1 {
+        font-size: 36px; /* Larger header font */
+    }
+
+    .love-note {
+        font-size: 26px; /* Adjust love note font size */
+    }
+}

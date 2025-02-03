@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMPORTANT ANNOUNCEMENT</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Iss, will you be my Valentine? ♡</h1>
+        <p class="love-note">
+            With you, heart beats warm,<br>
+            Will you be my Valentine?<br>
+            Love blooms, pure and true. 
+        </p>
+        <input type="checkbox" id="yes-checkbox" onclick="enableButton()">
+        <label for="yes-checkbox">YES NA YES</label>
+        <br>
+        <button id="submit-btn" disabled onclick="handleSubmit()">Submit</button>
+        <button id="no-btn" onclick="handleNo()">No</button>
+    </div>
+
+    <script>
+        function enableButton() {
+            document.getElementById("submit-btn").disabled = !document.getElementById("yes-checkbox").checked;
+        }
+
+        function handleSubmit() {
+            // Change the "No" button to "Yes" and disable "Submit" button
+            document.getElementById("no-btn").innerText = "Yes";
+            document.getElementById("submit-btn").disabled = true;
+
+            // Disable the checkbox to prevent further changes
+            document.getElementById("yes-checkbox").disabled = true;
+
+            // Add event to "Yes" button
+            document.getElementById("no-btn").setAttribute("onclick", "finalizeSubmission()");
+        }
+
+        function handleNo() {
+            if (document.getElementById("no-btn").innerText === "Yes") {
+                // If it's "Yes", trigger the final submission
+                finalizeSubmission();
+            } else {
+                // Keep the "No" as is for now
+                alert("Please select 'Yes' to proceed.");
+            }
+        }
+        
+        function finalizeSubmission() {
+            // Change the content to display a confirmation
+            document.body.innerHTML = `
+                <div class="final-message-container">
+                    <h1>Happy Valentine's Day, my love! ♡</h1>
+                    <h2>I will make our Valentine's extra special.</h2>
+                    <h2>Forever yours,</h2>
+                    <h2>Rei Majeeb</h2>
+                    <div class="hearts"></div>
+                </div>
+            `;
+            startHeartAnimation();
+        }
+
+        function startHeartAnimation() {
+            const heartContainer = document.querySelector(".hearts");
+            for (let i = 0; i < 20; i++) {
+                let heart = document.createElement("div");
+                heart.classList.add("heart");
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+                heartContainer.appendChild(heart);
+            }
+            setTimeout(() => {
+                heartContainer.innerHTML = "";
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
